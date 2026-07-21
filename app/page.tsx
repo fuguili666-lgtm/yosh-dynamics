@@ -56,6 +56,13 @@ export default function Home() {
               </div>
               <h3>{item.title}</h3>
               <p>{item.summary}</p>
+              {item.imageUrls && item.imageUrls.length > 0 ? (
+                <div className="imageGrid" aria-label={`${item.title} 图片`}>
+                  {item.imageUrls.map((imageUrl) => (
+                    <img src={imageUrl} alt={item.title} key={imageUrl} />
+                  ))}
+                </div>
+              ) : null}
               <div className="badges">
                 <span>{item.platform}</span>
                 <span>

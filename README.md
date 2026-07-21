@@ -20,9 +20,41 @@
   category: "官方/后援会",
   credibility: "B 媒体/平台索引",
   status: "已核验",
-  tags: ["超话", "后援会", "投票"]
+  tags: ["超话", "后援会", "投票"],
+  imageUrls: ["/images/example.jpg"]
 }
 ```
+
+## 如何放图
+
+把图片文件放进：
+
+```text
+public/images/
+```
+
+例如你放了一张：
+
+```text
+public/images/2026-07-21-yushi.jpg
+```
+
+就在 `data/updates.ts` 对应动态里写：
+
+```ts
+imageUrls: ["/images/2026-07-21-yushi.jpg"]
+```
+
+多张图：
+
+```ts
+imageUrls: [
+  "/images/2026-07-21-yushi-1.jpg",
+  "/images/2026-07-21-yushi-2.jpg"
+]
+```
+
+正式上线前建议只放官方图、授权图或你自己有权使用的图；粉丝图、站姐图和小红书/微博原图要谨慎。
 
 ## 本地运行
 

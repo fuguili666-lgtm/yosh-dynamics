@@ -1,13 +1,13 @@
 :root {
-  --bg: #f7f4ee;
-  --ink: #202124;
-  --muted: #69665f;
-  --line: #ded8ca;
-  --paper: #fffdf8;
+  --bg: #f6f0ff;
+  --ink: #272232;
+  --muted: #6e6678;
+  --line: #ddd0ef;
+  --paper: #fffbff;
   --green: #1f7a5b;
-  --blue: #3867b7;
-  --red: #b44b43;
-  --gold: #9d741f;
+  --blue: #5d4fa8;
+  --red: #8f4f86;
+  --gold: #8c6a24;
 }
 
 * {
@@ -46,7 +46,7 @@ main {
 }
 
 .topbar h1 {
-  font-size: clamp(28px, 4vw, 48px);
+  font-size: clamp(26px, 3.3vw, 40px);
   font-weight: 800;
 }
 
@@ -67,7 +67,7 @@ nav a {
   border: 1px solid var(--line);
   border-radius: 999px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 13px;
   padding: 8px 13px;
 }
 
@@ -75,12 +75,12 @@ nav a {
   display: grid;
   gap: 24px;
   grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);
-  padding: 42px clamp(20px, 5vw, 72px) 28px;
+  padding: 34px clamp(20px, 5vw, 72px) 24px;
 }
 
 .summary h2 {
-  font-size: clamp(26px, 4vw, 52px);
-  line-height: 1.08;
+  font-size: clamp(24px, 3.2vw, 42px);
+  line-height: 1.16;
   max-width: 880px;
 }
 
@@ -95,7 +95,8 @@ nav a {
   border: 1px solid var(--line);
   border-radius: 8px;
   font-weight: 700;
-  padding: 14px 16px;
+  font-size: 14px;
+  padding: 12px 15px;
 }
 
 .layout {
@@ -132,7 +133,7 @@ nav a {
   display: grid;
   gap: 13px;
   margin-bottom: 14px;
-  padding: 20px;
+  padding: 18px;
 }
 
 .cardMeta,
@@ -184,21 +185,38 @@ nav a {
 }
 
 .updateCard h3 {
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1.25;
   margin: 0;
 }
 
 .updateCard p {
   color: #3f3b35;
+  font-size: 15px;
   line-height: 1.7;
   margin: 0;
+}
+
+.imageGrid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.imageGrid img {
+  aspect-ratio: 4 / 3;
+  background: #eee6f7;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: block;
+  object-fit: cover;
+  width: 100%;
 }
 
 .badges span,
 .tags span {
   align-items: center;
-  background: #f0ece3;
+  background: #f0e9fa;
   border: 1px solid var(--line);
   border-radius: 999px;
   color: #4d4942;
@@ -231,7 +249,7 @@ aside {
 }
 
 .panel h2 {
-  font-size: 18px;
+  font-size: 17px;
   margin-bottom: 12px;
 }
 
@@ -257,6 +275,11 @@ aside {
   color: var(--muted);
   font-size: 13px;
   margin: 0;
+}
+
+.scheduleItem strong,
+.timelineItem {
+  font-size: 14px;
 }
 
 .scheduleItem strong {

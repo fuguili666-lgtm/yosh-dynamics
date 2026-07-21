@@ -10,6 +10,7 @@ export type UpdateItem = {
   credibility: "A 官方" | "B 媒体/平台索引" | "C 粉丝内容" | "待核验";
   status: "已核验" | "待核验";
   tags: string[];
+  imageUrls?: string[];
 };
 
 export const updates: UpdateItem[] = [
@@ -25,7 +26,8 @@ export const updates: UpdateItem[] = [
     category: "官方/后援会",
     credibility: "B 媒体/平台索引",
     status: "已核验",
-    tags: ["超话", "后援会", "投票"]
+    tags: ["超话", "后援会", "投票"],
+    imageUrls: []
   },
   {
     id: "2026-07-20-shanghai-concert",
@@ -39,7 +41,8 @@ export const updates: UpdateItem[] = [
     category: "活动行程",
     credibility: "B 媒体/平台索引",
     status: "已核验",
-    tags: ["演唱会", "上海", "行程"]
+    tags: ["演唱会", "上海", "行程"],
+    imageUrls: []
   },
   {
     id: "2026-07-20-88vip-ticketing",
@@ -53,7 +56,8 @@ export const updates: UpdateItem[] = [
     category: "活动行程",
     credibility: "B 媒体/平台索引",
     status: "已核验",
-    tags: ["音乐盛典", "票务", "活动"]
+    tags: ["音乐盛典", "票务", "活动"],
+    imageUrls: []
   },
   {
     id: "2026-07-20-xhs-open-check",
@@ -67,19 +71,21 @@ export const updates: UpdateItem[] = [
     category: "待核验",
     credibility: "待核验",
     status: "待核验",
-    tags: ["小红书", "待核验"]
+    tags: ["小红书", "待核验"],
+    imageUrls: []
   },
   {
-  id: "2026-07-21-example",
-  title: "just 测试！just 测试！just 测试！just 测试！",
-  summary: "这里写简短摘要。",
-  eventDate: "2026-07-21",
-  platform: "微博",
-  sourceName: "来源名称",
-  sourceUrl: "https://example.com",
-  category: "活动行程",
-  credibility: "B 媒体/平台索引",
-  status: "已核验",
-  tags: ["标签1", "标签2"]
-}
+    id: "2026-07-21-example",
+    title: "just 测试！just 测试！just 测试！just 测试！",
+    summary: "这里写简短摘要。",
+    eventDate: "2026-07-21",
+    platform: "微博",
+    sourceName: "来源名称",
+    sourceUrl: "https://example.com",
+    category: "活动行程",
+    credibility: "B 媒体/平台索引",
+    status: "已核验",
+    tags: ["标签1", "标签2"],
+    imageUrls: ["/images/yosh1.jpg"]
+  }
 ];
