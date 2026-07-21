@@ -1,0 +1,305 @@
+:root {
+  --bg: #f7f4ee;
+  --ink: #202124;
+  --muted: #69665f;
+  --line: #ded8ca;
+  --paper: #fffdf8;
+  --green: #1f7a5b;
+  --blue: #3867b7;
+  --red: #b44b43;
+  --gold: #9d741f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.topbar {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  padding: 22px clamp(20px, 5vw, 72px);
+}
+
+.topbar h1,
+.summary h2,
+.sectionHead h2,
+.panel h2 {
+  margin: 0;
+}
+
+.topbar h1 {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800;
+}
+
+.eyebrow {
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin: 0 0 6px;
+}
+
+nav {
+  display: flex;
+  gap: 10px;
+}
+
+nav a {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 14px;
+  padding: 8px 13px;
+}
+
+.summary {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);
+  padding: 42px clamp(20px, 5vw, 72px) 28px;
+}
+
+.summary h2 {
+  font-size: clamp(26px, 4vw, 52px);
+  line-height: 1.08;
+  max-width: 880px;
+}
+
+.metrics {
+  align-content: start;
+  display: grid;
+  gap: 10px;
+}
+
+.metrics span {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-weight: 700;
+  padding: 14px 16px;
+}
+
+.layout {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  padding: 8px clamp(20px, 5vw, 72px) 36px;
+}
+
+.sectionHead {
+  align-items: end;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.sectionHead p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.feed {
+  min-width: 0;
+}
+
+.updateCard,
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.updateCard {
+  display: grid;
+  gap: 13px;
+  margin-bottom: 14px;
+  padding: 20px;
+}
+
+.cardMeta,
+.badges,
+.tags,
+.source,
+.date {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cardMeta {
+  justify-content: space-between;
+}
+
+.category {
+  border-radius: 999px;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 10px;
+}
+
+.official {
+  background: var(--green);
+}
+
+.community {
+  background: var(--blue);
+}
+
+.schedule {
+  background: var(--gold);
+}
+
+.fan {
+  background: #7555a5;
+}
+
+.pending {
+  background: var(--muted);
+}
+
+.date {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.updateCard h3 {
+  font-size: 22px;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.updateCard p {
+  color: #3f3b35;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.badges span,
+.tags span {
+  align-items: center;
+  background: #f0ece3;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: #4d4942;
+  display: inline-flex;
+  font-size: 13px;
+  gap: 5px;
+  padding: 6px 10px;
+}
+
+.source {
+  color: var(--blue);
+  font-weight: 700;
+  width: fit-content;
+}
+
+.source.muted {
+  color: var(--muted);
+}
+
+aside {
+  display: grid;
+  gap: 14px;
+  height: fit-content;
+  position: sticky;
+  top: 16px;
+}
+
+.panel {
+  padding: 18px;
+}
+
+.panel h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.timelineItem,
+.scheduleItem {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 5px;
+  padding: 13px 0;
+}
+
+.timelineItem:first-of-type,
+.scheduleItem:first-of-type {
+  border-top: 0;
+}
+
+.timelineItem {
+  grid-template-columns: 1fr auto;
+}
+
+.scheduleItem span,
+.scheduleItem p {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0;
+}
+
+.scheduleItem strong {
+  line-height: 1.35;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  padding: 20px clamp(20px, 5vw, 72px) 32px;
+}
+
+@media (max-width: 900px) {
+  .topbar,
+  .sectionHead {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .summary,
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  aside {
+    position: static;
+  }
+}
+
+@media (max-width: 520px) {
+  nav {
+    width: 100%;
+  }
+
+  nav a {
+    flex: 1;
+    text-align: center;
+  }
+
+  .updateCard {
+    padding: 16px;
+  }
+}
