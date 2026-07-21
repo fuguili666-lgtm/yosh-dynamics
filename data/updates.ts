@@ -68,5 +68,18 @@ export const updates: UpdateItem[] = [
     credibility: "待核验",
     status: "待核验",
     tags: ["小红书", "待核验"]
-  }
+  },
+  {
+  id: "2026-07-21-example",
+  title: "just 测试！just 测试！just 测试！just 测试！",
+  summary: "这里写简短摘要。",
+  eventDate: "2026-07-21",
+  platform: "微博",
+  sourceName: "来源名称",
+  sourceUrl: "https://example.com",
+  category: "活动行程",
+  credibility: "B 媒体/平台索引",
+  status: "已核验",
+  tags: ["标签1", "标签2"]
+}
 ];
