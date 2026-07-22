@@ -94,7 +94,7 @@ export const updates: UpdateItem[] = [
     credibility: "B 媒体/平台索引",
     status: "已核验",
     tags: ["标签1", "标签2"],
-    imageUrls: ["/images/yosh1.jpg"]
+    imageUrls: ["/images/yosh1.jpg", "/images/yosh2.jpg"]
   },
   {
     id: "2026-07-21-interview-placeholder",
