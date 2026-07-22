@@ -30,23 +30,48 @@ main {
   min-height: 100vh;
 }
 
+.hero {
+  align-items: end;
+  background:
+    linear-gradient(90deg, rgba(39, 34, 50, 0.82), rgba(93, 79, 168, 0.3)),
+    url("/images/hero-yushi.jpg");
+  background-color: #d9ccf4;
+  background-position: center 28%;
+  background-size: cover;
+  color: white;
+  display: flex;
+  min-height: clamp(210px, 30vw, 340px);
+  padding: clamp(22px, 4vw, 56px);
+}
+
+.heroContent h1 {
+  font-size: clamp(36px, 6vw, 78px);
+  line-height: 1;
+  margin: 0;
+}
+
+.hero .eyebrow {
+  color: #f0e8ff;
+}
+
 .topbar {
   align-items: center;
   border-bottom: 1px solid var(--line);
   display: flex;
   justify-content: space-between;
-  padding: 22px clamp(20px, 5vw, 72px);
+  padding: 18px clamp(18px, 4vw, 56px);
 }
 
 .topbar h1,
+.topbar h2,
 .summary h2,
 .sectionHead h2,
 .panel h2 {
   margin: 0;
 }
 
-.topbar h1 {
-  font-size: clamp(26px, 3.3vw, 40px);
+.topbar h2 {
+  font-size: clamp(22px, 2.7vw, 34px);
   font-weight: 800;
 }
 
@@ -61,6 +86,7 @@ main {
 nav {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 nav a {
@@ -73,21 +99,22 @@ nav a {
 
 .summary {
   display: grid;
-  gap: 24px;
+  gap: 18px;
   grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);
-  padding: 34px clamp(20px, 5vw, 72px) 24px;
+  padding: 26px clamp(18px, 4vw, 56px) 18px;
 }
 
 .summary h2 {
-  font-size: clamp(24px, 3.2vw, 42px);
+  font-size: clamp(21px, 2.7vw, 34px);
   line-height: 1.16;
   max-width: 880px;
 }
 
 .metrics {
   align-content: start;
-  display: grid;
-  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .metrics span {
@@ -95,30 +122,60 @@ nav a {
   border: 1px solid var(--line);
   border-radius: 8px;
   font-weight: 700;
-  font-size: 14px;
-  padding: 12px 15px;
+  font-size: 13px;
+  padding: 10px 12px;
 }
 
 .layout {
-  display: grid;
-  gap: 22px;
-  grid-template-columns: minmax(0, 1fr) 340px;
-  padding: 8px clamp(20px, 5vw, 72px) 36px;
+  padding: 6px clamp(18px, 4vw, 56px) 36px;
 }
 
 .sectionHead {
   align-items: end;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 14px;
+  min-height: 32px;
+}
+
+.updateSection {
+  background: rgba(255, 251, 255, 0.72);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 520px;
+  min-width: 0;
+  padding: 14px;
+  scroll-margin-top: 18px;
+}
+
+.sectionBody {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.sectionBody::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sectionBody::-webkit-scrollbar-thumb {
+  background: #cdbce8;
+  border-radius: 999px;
 }
 
 .sectionHead p {
   color: var(--muted);
+  font-size: 13px;
   margin: 0;
 }
 
 .feed {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   min-width: 0;
 }
 
@@ -131,9 +188,9 @@ nav a {
 
 .updateCard {
   display: grid;
-  gap: 13px;
-  margin-bottom: 14px;
-  padding: 18px;
+  gap: 9px;
+  margin-bottom: 0;
+  padding: 12px;
 }
 
 .cardMeta,
@@ -154,9 +211,9 @@ nav a {
 .category {
   border-radius: 999px;
   color: white;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  padding: 6px 10px;
+  padding: 5px 9px;
 }
 
 .official {
@@ -171,6 +228,10 @@ nav a {
   background: var(--gold);
 }
 
+.interview {
+  background: #6d597a;
+}
+
 .fan {
   background: #7555a5;
 }
@@ -181,36 +242,37 @@ nav a {
 
 .date {
   color: var(--muted);
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .updateCard h3 {
-  font-size: 20px;
+  font-size: 17px;
   line-height: 1.25;
   margin: 0;
 }
 
 .updateCard p {
   color: #3f3b35;
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: 14px;
+  line-height: 1.62;
   margin: 0;
 }
 
 .imageGrid {
   display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
 }
 
 .imageGrid img {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
   background: #eee6f7;
   border: 1px solid var(--line);
   border-radius: 8px;
   display: block;
   object-fit: cover;
   width: 100%;
+  max-height: 120px;
 }
 
 .badges span,
@@ -221,9 +283,9 @@ nav a {
   border-radius: 999px;
   color: #4d4942;
   display: inline-flex;
-  font-size: 13px;
+  font-size: 12px;
   gap: 5px;
-  padding: 6px 10px;
+  padding: 5px 9px;
 }
 
 .source {
@@ -234,6 +296,19 @@ nav a {
 
 .source.muted {
   color: var(--muted);
+}
+
+.emptyState {
+  align-items: center;
+  background: var(--paper);
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  display: flex;
+  font-size: 14px;
+  justify-content: center;
+  min-height: 160px;
+  padding: 14px;
 }
 
 aside {
@@ -291,7 +366,7 @@ footer {
   color: var(--muted);
   font-size: 13px;
   line-height: 1.6;
-  padding: 20px clamp(20px, 5vw, 72px) 32px;
+  padding: 18px clamp(18px, 4vw, 56px) 28px;
 }
 
 @media (max-width: 900px) {
@@ -302,13 +377,16 @@ footer {
     gap: 14px;
   }
 
-  .summary,
-  .layout {
+  .summary {
     grid-template-columns: 1fr;
   }
 
-  aside {
-    position: static;
+  .feed {
+    grid-template-columns: 1fr;
+  }
+
+  .updateSection {
+    height: 460px;
   }
 }
 
@@ -323,6 +401,6 @@ footer {
   }
 
   .updateCard {
-    padding: 16px;
+    padding: 13px;
   }
 }

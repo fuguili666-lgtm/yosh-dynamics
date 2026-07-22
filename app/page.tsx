@@ -1,28 +1,41 @@
 import { CalendarDays, CheckCircle2, ExternalLink, ShieldCheck } from "lucide-react";
-import { updates } from "../data/updates";
+import { UpdateSection, updates } from "../data/updates";
+
+const sections: UpdateSection[] = ["于适微博动态", "于适工作室微博动态", "活动行程", "采访视频"];
 
 const categoryColors: Record<string, string> = {
   "本人动态": "category official",
-  "官方/后援会": "category community",
+  "工作室动态": "category community",
   "活动行程": "category schedule",
+  "采访视频": "category interview",
   "粉丝内容": "category fan",
   "待核验": "category pending"
 };
 
 export default function Home() {
   const dates = Array.from(new Set(updates.map((item) => item.eventDate))).sort().reverse();
+  const sortedUpdates = [...updates].sort((a, b) => b.eventDate.localeCompare(a.eventDate));
 
   return (
     <main>
+      <section className="hero">
+        <div className="heroContent">
+          <p className="eyebrow">Yosh Dynamics</p>
+          <h1>于适动态</h1>
+        </div>
+      </section>
+
       <header className="topbar">
         <div>
           <p className="eyebrow">公开信息整理站</p>
-          <h1>于适动态</h1>
+          <h2>动态归档</h2>
         </div>
         <nav>
-          <a href="#latest">最新</a>
-          <a href="#timeline">时间线</a>
-          <a href="#schedule">行程</a>
+          {sections.map((section) => (
+            <a href={`#${section}`} key={section}>
+              {section.replace("于适", "")}
+            </a>
+          ))}
         </nav>
       </header>
 
@@ -39,83 +52,72 @@ export default function Home() {
       </section>
 
       <section className="layout">
-        <div className="feed" id="latest">
-          <div className="sectionHead">
-            <h2>最新动态</h2>
-            <p>按日期倒序展示，适合每日更新。</p>
-          </div>
+        <div className="feed">
+          {sections.map((section) => {
+            const sectionItems = sortedUpdates.filter((item) => item.section === section);
 
-          {updates.map((item) => (
-            <article className="updateCard" key={item.id}>
-              <div className="cardMeta">
-                <span className={categoryColors[item.category]}>{item.category}</span>
-                <span className="date">
-                  <CalendarDays size={16} />
-                  {item.eventDate}
-                </span>
-              </div>
-              <h3>{item.title}</h3>
-              <p>{item.summary}</p>
-              {item.imageUrls && item.imageUrls.length > 0 ? (
-                <div className="imageGrid" aria-label={`${item.title} 图片`}>
-                  {item.imageUrls.map((imageUrl) => (
-                    <img src={imageUrl} alt={item.title} key={imageUrl} />
-                  ))}
+            return (
+              <section className="updateSection" id={section} key={section}>
+                <div className="sectionHead">
+                  <h2>{section}</h2>
+                  <p>按时间降序</p>
                 </div>
-              ) : null}
-              <div className="badges">
-                <span>{item.platform}</span>
-                <span>
-                  <ShieldCheck size={14} />
-                  {item.credibility}
-                </span>
-                <span>
-                  <CheckCircle2 size={14} />
-                  {item.status}
-                </span>
-              </div>
-              <div className="tags">
-                {item.tags.map((tag) => (
-                  <span key={tag}>#{tag}</span>
-                ))}
-              </div>
-              {item.sourceUrl ? (
-                <a className="source" href={item.sourceUrl} target="_blank" rel="noreferrer">
-                  {item.sourceName}
-                  <ExternalLink size={15} />
-                </a>
-              ) : (
-                <span className="source muted">暂无可公开核验原链接</span>
-              )}
-            </article>
-          ))}
+
+                <div className="sectionBody">
+                  {sectionItems.length > 0 ? (
+                    sectionItems.map((item) => (
+                      <article className="updateCard" key={item.id}>
+                        <div className="cardMeta">
+                          <span className={categoryColors[item.category]}>{item.category}</span>
+                          <span className="date">
+                            <CalendarDays size={15} />
+                            {item.eventDate}
+                          </span>
+                        </div>
+                        <h3>{item.title}</h3>
+                        <p>{item.summary}</p>
+                        {item.imageUrls && item.imageUrls.length > 0 ? (
+                          <div className="imageGrid" aria-label={`${item.title} 图片`}>
+                            {item.imageUrls.map((imageUrl) => (
+                              <img src={imageUrl} alt={item.title} key={imageUrl} />
+                            ))}
+                          </div>
+                        ) : null}
+                        <div className="badges">
+                          <span>{item.platform}</span>
+                          <span>
+                            <ShieldCheck size={14} />
+                            {item.credibility}
+                          </span>
+                          <span>
+                            <CheckCircle2 size={14} />
+                            {item.status}
+                          </span>
+                        </div>
+                        <div className="tags">
+                          {item.tags.map((tag) => (
+                            <span key={tag}>#{tag}</span>
+                          ))}
+                        </div>
+                        {item.sourceUrl ? (
+                          <a className="source" href={item.sourceUrl} target="_blank" rel="noreferrer">
+                            {item.sourceName}
+                            <ExternalLink size={15} />
+                          </a>
+                        ) : (
+                          <span className="source muted">暂无可公开核验原链接</span>
+                        )}
+                      </article>
+                    ))
+                  ) : (
+                    <div className="emptyState">暂无更新</div>
+                  )}
+                </div>
+              </section>
+            );
+          })}
         </div>
 
-        <aside>
-          <section className="panel" id="timeline">
-            <h2>时间线</h2>
-            {dates.map((date) => (
-              <a className="timelineItem" href="#latest" key={date}>
-                <span>{date}</span>
-                <strong>{updates.filter((item) => item.eventDate === date).length} 条</strong>
-              </a>
-            ))}
-          </section>
-
-          <section className="panel" id="schedule">
-            <h2>近期行程</h2>
-            <div className="scheduleItem">
-              <span>2026-07-25 至 2026-07-26</span>
-              <strong>「适诗」2026巡回演唱会上海站</strong>
-              <p>上海梅赛德斯-奔驰文化中心</p>
-            </div>
-            <div className="scheduleItem">
-              <span>2026-07-21 10:00</span>
-              <strong>88VIP超酷音乐盛典重启预售</strong>
-              <p>来源为公开新闻，具体出席以官方发布为准。</p>
-            </div>
-          </section>
-        </aside>
       </section>
 
       <footer>

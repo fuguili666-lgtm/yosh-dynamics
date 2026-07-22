@@ -17,7 +17,8 @@
   platform: "微博",
   sourceName: "新浪微博公开索引",
   sourceUrl: "https://www.sina.cn/news/detail/5317682704680586.html",
-  category: "官方/后援会",
+  section: "于适工作室微博动态",
+  category: "工作室动态",
   credibility: "B 媒体/平台索引",
   status: "已核验",
   tags: ["超话", "后援会", "投票"],
@@ -26,6 +27,14 @@
 ```
 
 ## 如何放图
+
+顶部大图固定读取：
+
+```text
+public/images/hero-yushi.jpg
+```
+
+你只要把于适图片命名成 `hero-yushi.jpg`，放进 `public/images/`，网站顶部就会显示。
 
 把图片文件放进：
 
@@ -55,6 +64,19 @@ imageUrls: [
 ```
 
 正式上线前建议只放官方图、授权图或你自己有权使用的图；粉丝图、站姐图和小红书/微博原图要谨慎。
+
+## 分区规则
+
+每条动态通过 `section` 决定出现在哪个区域：
+
+```ts
+section: "于适微博动态"
+section: "于适工作室微博动态"
+section: "活动行程"
+section: "采访视频"
+```
+
+每个区域会自动按 `eventDate` 从新到旧排序。
 
 ## 本地运行
 

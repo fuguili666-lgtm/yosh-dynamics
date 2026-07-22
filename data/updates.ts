@@ -1,3 +1,5 @@
+export type UpdateSection = "于适微博动态" | "于适工作室微博动态" | "活动行程" | "采访视频";
+
 export type UpdateItem = {
   id: string;
   title: string;
@@ -6,7 +8,8 @@ export type UpdateItem = {
   platform: "微博" | "小红书" | "新闻" | "票务" | "品牌" | "其他";
   sourceName: string;
   sourceUrl: string;
-  category: "本人动态" | "官方/后援会" | "活动行程" | "粉丝内容" | "待核验";
+  section: UpdateSection;
+  category: "本人动态" | "工作室动态" | "活动行程" | "采访视频" | "粉丝内容" | "待核验";
   credibility: "A 官方" | "B 媒体/平台索引" | "C 粉丝内容" | "待核验";
   status: "已核验" | "待核验";
   tags: string[];
@@ -23,7 +26,8 @@ export const updates: UpdateItem[] = [
     platform: "微博",
     sourceName: "新浪微博公开索引",
     sourceUrl: "https://www.sina.cn/news/detail/5317682704680586.html",
-    category: "官方/后援会",
+    section: "于适工作室微博动态",
+    category: "工作室动态",
     credibility: "B 媒体/平台索引",
     status: "已核验",
     tags: ["超话", "后援会", "投票"],
@@ -38,6 +42,7 @@ export const updates: UpdateItem[] = [
     platform: "票务",
     sourceName: "公开新闻/票务索引",
     sourceUrl: "https://www.sina.cn/news/detail/5317682704680586.html",
+    section: "活动行程",
     category: "活动行程",
     credibility: "B 媒体/平台索引",
     status: "已核验",
@@ -53,6 +58,7 @@ export const updates: UpdateItem[] = [
     platform: "新闻",
     sourceName: "搜狐新闻",
     sourceUrl: "https://www.sohu.com/a/1052474550_362225",
+    section: "活动行程",
     category: "活动行程",
     credibility: "B 媒体/平台索引",
     status: "已核验",
@@ -68,6 +74,7 @@ export const updates: UpdateItem[] = [
     platform: "小红书",
     sourceName: "公开搜索记录",
     sourceUrl: "",
+    section: "于适微博动态",
     category: "待核验",
     credibility: "待核验",
     status: "待核验",
@@ -82,10 +89,26 @@ export const updates: UpdateItem[] = [
     platform: "微博",
     sourceName: "来源名称",
     sourceUrl: "https://example.com",
-    category: "活动行程",
+    section: "于适微博动态",
+    category: "本人动态",
     credibility: "B 媒体/平台索引",
     status: "已核验",
     tags: ["标签1", "标签2"],
     imageUrls: ["/images/yosh1.jpg"]
+  },
+  {
+    id: "2026-07-21-interview-placeholder",
+    title: "采访视频示例",
+    summary: "这里可以记录采访、直播切片或官方视频物料，填入原视频链接作为来源。",
+    eventDate: "2026-07-21",
+    platform: "其他",
+    sourceName: "视频来源名称",
+    sourceUrl: "https://example.com",
+    section: "采访视频",
+    category: "采访视频",
+    credibility: "待核验",
+    status: "待核验",
+    tags: ["采访", "视频"],
+    imageUrls: []
   }
 ];
