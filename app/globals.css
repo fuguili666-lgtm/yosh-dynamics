@@ -261,18 +261,18 @@ nav a {
 .imageGrid {
   display: grid;
   gap: 8px;
-  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
 }
 
 .imageGrid img {
-  aspect-ratio: 3 / 2;
   background: #eee6f7;
   border: 1px solid var(--line);
   border-radius: 8px;
   display: block;
-  object-fit: cover;
+  height: 132px;
+  object-fit: contain;
+  object-position: center;
   width: 100%;
-  max-height: 120px;
 }
 
 .badges span,
